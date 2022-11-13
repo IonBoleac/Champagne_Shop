@@ -1,0 +1,121 @@
+ott 15, 2021 5:08:00 PM services.logservice.LogService getApplicationLogger
+CONFIGURAZIONE: Logger: rubrica created.
+ott 15, 2021 5:08:00 PM dispatcher.Dispatcher processRequest
+INFORMAZIONI: ControllAction: OrdineManagement.compilareOrdine
+ott 15, 2021 5:08:00 PM dispatcher.Dispatcher processRequest
+INFORMAZIONI: OrdineManagement compilareOrdine
+ott 21, 2021 12:24:41 AM services.logservice.LogService getApplicationLogger
+CONFIGURAZIONE: Logger: champagneShop created.
+ott 21, 2021 12:24:41 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: ControllAction: OrdineAdminManagement.view
+ott 21, 2021 12:24:41 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: OrdineAdminManagement view
+ott 21, 2021 9:17:30 AM services.logservice.LogService getApplicationLogger
+CONFIGURAZIONE: Logger: champagneShop created.
+ott 21, 2021 9:17:30 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: ControllAction: OrdineAdminManagement.blockUnblockTestataOrdine
+ott 21, 2021 9:17:30 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: OrdineAdminManagement blockUnblockTestataOrdine
+ott 21, 2021 9:17:32 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: ControllAction: OrdineAdminManagement.blockUnblockTestataOrdine
+ott 21, 2021 9:17:32 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: OrdineAdminManagement blockUnblockTestataOrdine
+ott 21, 2021 9:17:37 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: ControllAction: OrdineAdminManagement.blockUnblockTestataOrdine
+ott 21, 2021 9:17:37 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: OrdineAdminManagement blockUnblockTestataOrdine
+ott 21, 2021 9:17:40 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: ControllAction: OrdineManagement.view
+ott 21, 2021 9:17:40 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: OrdineManagement view
+ott 21, 2021 9:17:53 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: ControllAction: OrdineAdminManagement.view
+ott 21, 2021 9:17:53 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: OrdineAdminManagement view
+ott 21, 2021 9:17:57 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: ControllAction: OrdineAdminManagement.blockUnblockTestataOrdine
+ott 21, 2021 9:17:57 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: OrdineAdminManagement blockUnblockTestataOrdine
+ott 21, 2021 9:18:34 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: ControllAction: OrdineAdminManagement.view
+ott 21, 2021 9:18:34 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: OrdineAdminManagement view
+ott 21, 2021 9:19:38 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: ControllAction: OrdineAdminManagement.view
+ott 21, 2021 9:19:38 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: OrdineAdminManagement view
+ott 21, 2021 9:19:40 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: ControllAction: OrdineAdminManagement.setCosegnato
+ott 21, 2021 9:19:40 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: OrdineAdminManagement setCosegnato
+ott 21, 2021 9:19:44 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: ControllAction: OrdineAdminManagement.view
+ott 21, 2021 9:19:44 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: OrdineAdminManagement view
+nov 17, 2021 1:26:16 AM services.logservice.LogService getApplicationLogger
+CONFIGURAZIONE: Logger: champagneShop created.
+nov 17, 2021 1:26:16 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: ControllAction: HomeManagement.view
+nov 17, 2021 1:26:16 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: HomeManagement view
+nov 17, 2021 1:26:49 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: ControllAction: HomeManagement.view
+nov 17, 2021 1:26:49 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: HomeManagement view
+nov 17, 2021 1:27:30 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: ControllAction: HomeManagement.logon
+nov 17, 2021 1:27:30 AM dispatcher.Dispatcher processRequest
+INFORMAZIONI: HomeManagement logon
+nov 17, 2021 1:27:30 AM dispatcher.Dispatcher processRequest
+GRAVE: Dispatcher Error
+org.apache.jasper.JasperException: java.lang.NullPointerException
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:432)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:336)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:750)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1540)
+	at org.apache.catalina.core.ApplicationDispatcher.doInvoke(ApplicationDispatcher.java:779)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:643)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:479)
+	at org.apache.catalina.core.ApplicationDispatcher.doDispatch(ApplicationDispatcher.java:450)
+	at org.apache.catalina.core.ApplicationDispatcher.dispatch(ApplicationDispatcher.java:332)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:282)
+	at dispatcher.Dispatcher.processRequest(Dispatcher.java:61)
+	at dispatcher.Dispatcher.doPost(Dispatcher.java:102)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:665)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:750)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1540)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:217)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:119)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:611)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:550)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:75)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:114)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:332)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:199)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$HttpHandlerCallable.call(ContainerMapper.java:439)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:144)
+	at org.glassfish.grizzly.http.server.HttpHandler.runService(HttpHandler.java:182)
+	at org.glassfish.grizzly.http.server.HttpHandler.doHandle(HttpHandler.java:156)
+	at org.glassfish.grizzly.http.server.HttpServerFilter.handleRead(HttpServerFilter.java:218)
+	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:95)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:260)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:177)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:109)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:88)
+	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:53)
+	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:515)
+	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:89)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:94)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$100(WorkerThreadIOStrategy.java:33)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:114)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:569)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:549)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at org.apache.jsp.jsp.homeManagement.view_jsp._jspService(view_jsp.java:250)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:750)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:370)
+	... 42 more
+
