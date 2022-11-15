@@ -36,7 +36,7 @@ public class HomeManagement {
     
     try {
 
-      Map sessionFactoryParameters=new HashMap<String,Object>();
+      Map<String,Object> sessionFactoryParameters=new HashMap<String,Object>();
       sessionFactoryParameters.put("request",request);
       sessionFactoryParameters.put("response",response);
       sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL,sessionFactoryParameters);
@@ -90,7 +90,7 @@ public class HomeManagement {
     
     try {
 
-      Map sessionFactoryParameters=new HashMap<String,Object>();
+      Map<String,Object> sessionFactoryParameters=new HashMap<String,Object>();
       sessionFactoryParameters.put("request",request);
       sessionFactoryParameters.put("response",response);
       sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL,sessionFactoryParameters);
@@ -110,13 +110,16 @@ public class HomeManagement {
 
       UtenteDAO userDAO = daoFactory.getUtenteDAO();
       Utente user = userDAO.findByEmail(email);
+      String forTest = null;
 
       if (user == null || !user.getPassword().equals(password)) {
         sessionUserDAO.delete(null);
         applicationMessage = "Username e password errati!";
         loggedUser=null;
+        forTest = "Utente non trovato";
       } else {
         loggedUser = sessionUserDAO.create(user.getEmail(), user.getNome(), user.getCognome(), null, null, null, null, user.isAdmin(), false, false);
+        forTest = "Utente trovato";
       }
 
       daoFactory.commitTransaction();
@@ -126,6 +129,7 @@ public class HomeManagement {
       request.setAttribute("loggedUser", loggedUser);
       request.setAttribute("prodottiVetrina", prodottiVetrina);
       request.setAttribute("applicationMessage", applicationMessage);
+      request.setAttribute("forTest", forTest);
       request.setAttribute("viewUrl", "homeManagement/view");
 
     } catch (Exception e) {
@@ -158,7 +162,7 @@ public class HomeManagement {
 
     try {
 
-      Map sessionFactoryParameters=new HashMap<String,Object>();
+      Map<String,Object> sessionFactoryParameters=new HashMap<String,Object>();
       sessionFactoryParameters.put("request",request);
       sessionFactoryParameters.put("response",response);
       sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL,sessionFactoryParameters);
@@ -205,7 +209,7 @@ public class HomeManagement {
     Logger logger = LogService.getApplicationLogger();
 
     try{
-      Map sessionFactoryParameters=new HashMap<String,Object>();
+      Map<String,Object> sessionFactoryParameters=new HashMap<String,Object>();
       sessionFactoryParameters.put("request",request);
       sessionFactoryParameters.put("response",response);
       sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL,sessionFactoryParameters);
@@ -260,7 +264,7 @@ public class HomeManagement {
 
     try {
 
-      Map sessionFactoryParameters=new HashMap<String,Object>();
+      Map<String,Object> sessionFactoryParameters=new HashMap<String,Object>();
       sessionFactoryParameters.put("request",request);
       sessionFactoryParameters.put("response",response);
       sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL,sessionFactoryParameters);
@@ -335,7 +339,7 @@ public class HomeManagement {
 
     Logger logger = LogService.getApplicationLogger();
     try{
-      Map sessionFactoryParameters=new HashMap<String,Object>();
+      Map<String,Object> sessionFactoryParameters=new HashMap<String,Object>();
       sessionFactoryParameters.put("request",request);
       sessionFactoryParameters.put("response",response);
       sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL,sessionFactoryParameters);

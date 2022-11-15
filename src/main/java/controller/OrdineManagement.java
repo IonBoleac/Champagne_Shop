@@ -31,7 +31,7 @@ public class OrdineManagement {
         Logger logger = LogService.getApplicationLogger();
 
         try{
-            Map sessionFactoryParameters = new HashMap<String, Object>();
+            Map<String, Object> sessionFactoryParameters = new HashMap<String, Object>();
             sessionFactoryParameters.put("request", request);
             sessionFactoryParameters.put("response", response);
             sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL, sessionFactoryParameters);
@@ -84,7 +84,7 @@ public class OrdineManagement {
         Logger logger = LogService.getApplicationLogger();
 
         try {
-            Map sessionFactoryParameters = new HashMap<String, Object>();
+            Map<String, Object> sessionFactoryParameters = new HashMap<String, Object>();
             sessionFactoryParameters.put("request", request);
             sessionFactoryParameters.put("response", response);
             sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL, sessionFactoryParameters);
@@ -183,7 +183,7 @@ public class OrdineManagement {
         Logger logger = LogService.getApplicationLogger();
 
         try{
-            Map sessionFactoryParameters = new HashMap<String, Object>();
+            Map<String, Object> sessionFactoryParameters = new HashMap<String, Object>();
             sessionFactoryParameters.put("request", request);
             sessionFactoryParameters.put("response", response);
             sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL, sessionFactoryParameters);
@@ -255,7 +255,7 @@ public class OrdineManagement {
         Logger logger = LogService.getApplicationLogger();
 
         try{
-            Map sessionFactoryParameters = new HashMap<String, Object>();
+            Map<String, Object> sessionFactoryParameters = new HashMap<String, Object>();
             sessionFactoryParameters.put("request", request);
             sessionFactoryParameters.put("response", response);
             sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL, sessionFactoryParameters);

@@ -46,6 +46,7 @@ public class ProdottiManagement {
             ProdottoDAO prodottoDAO = daoFactory.getProdottoDAO();
 
             prodotti = prodottoDAO.getAllProduct();
+            String forTest = "view tutti i prodotti";
 
 
             daoFactory.commitTransaction();
@@ -54,6 +55,7 @@ public class ProdottiManagement {
             request.setAttribute("loggedOn",loggedUser!=null);
             request.setAttribute("loggedUser", loggedUser);
             request.setAttribute("prodotti", prodotti);
+            request.setAttribute("forTest", forTest);
             request.setAttribute("applicationMessage", applicationMessage);
             request.setAttribute("viewUrl", "prodottiManagement/view");
         }catch (Exception e) {
@@ -99,19 +101,23 @@ public class ProdottiManagement {
             daoFactory = DAOFactory.getDAOFactory(Configuration.DAO_IMPL,null);
             daoFactory.beginTransaction();
 
+            String forTest = null;
             ProdottoDAO prodottoDAO = daoFactory.getProdottoDAO();
             idProduct = (String) request.getParameter("idProduct");
             if (!idProduct.equals("0")){
                 prodotto = prodottoDAO.findById(idProduct);
+                forTest = "view prodotto singolo";
             }
 
 
+            
             daoFactory.commitTransaction();
             sessionDAOFactory.commitTransaction();
 
             request.setAttribute("loggedOn",loggedUser!=null);
             request.setAttribute("loggedUser", loggedUser);
             request.setAttribute("prodotto", prodotto);
+            request.setAttribute("forTest", forTest);
             request.setAttribute("applicationMessage", applicationMessage);
             request.setAttribute("viewUrl", "prodottiManagement/prodotto");
 

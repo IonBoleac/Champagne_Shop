@@ -10,6 +10,9 @@ import services.logservice.LogService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.io.output.AppendableOutputStream;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,7 +37,7 @@ public class CatalogoManagement {
         Logger logger = LogService.getApplicationLogger();
 
         try {
-            Map sessionFactoryParameters = new HashMap<String, Object>();
+            Map<String, Object> sessionFactoryParameters = new HashMap<String, Object>();
             sessionFactoryParameters.put("request", request);
             sessionFactoryParameters.put("response", response);
             sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL, sessionFactoryParameters);
@@ -111,7 +114,7 @@ public class CatalogoManagement {
         Logger logger = LogService.getApplicationLogger();
 
         try {
-            Map sessionFactoryParameters = new HashMap<String, Object>();
+            Map<String, Object> sessionFactoryParameters = new HashMap<String, Object>();
             sessionFactoryParameters.put("request", request);
             sessionFactoryParameters.put("response", response);
             sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL, sessionFactoryParameters);
@@ -128,6 +131,7 @@ public class CatalogoManagement {
 
             String idProdotto = request.getParameter("idProdotto");
             prodotto = prodottoDAO.findById(idProdotto);
+            applicationMessage = "Visualizzazione prodotto";
 
             daoFactory.commitTransaction();
             sessionDAOFactory.commitTransaction();

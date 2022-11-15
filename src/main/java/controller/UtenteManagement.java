@@ -43,6 +43,8 @@ public class UtenteManagement {
             UtenteDAO utenteDAO = daoFactory.getUtenteDAO();
             utenti = utenteDAO.getAllUtenti();
 
+            applicationMessage = "View tutti gli utenti";
+
 
             daoFactory.commitTransaction();
             sessionDAOFactory.commitTransaction();

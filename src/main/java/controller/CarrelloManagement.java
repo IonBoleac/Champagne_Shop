@@ -46,6 +46,7 @@ public class CarrelloManagement {
             Utente utente = utenteDAO.findByEmail(loggedUser.getEmail());
             /* utente = utenteDAO.getCarrelloByUtente(utente); */
             utente.setCarello_CarelloList(carelloDAO.findCarrelloByUtente(utente));
+            String forTest = "tutto il carrello";
 
 
             daoFactory.commitTransaction();
@@ -54,6 +55,7 @@ public class CarrelloManagement {
             request.setAttribute("loggedOn",loggedUser!=null);
             request.setAttribute("loggedUser", loggedUser);
             request.setAttribute("utente", utente);
+            request.setAttribute("forTest", forTest);
             request.setAttribute("applicationMessage", applicationMessage);
             request.setAttribute("viewUrl", "carrelloManagement/view");
 
@@ -119,12 +121,14 @@ public class CarrelloManagement {
             utente.setCarello_CarelloList(carelloDAO.findCarrelloByUtente(utente));
 
 
+            String forTest = "cancello il prodotto dal carrello";
             daoFactory.commitTransaction();
             sessionDAOFactory.commitTransaction();
 
             request.setAttribute("loggedOn",loggedUser!=null);
             request.setAttribute("loggedUser", loggedUser);
             request.setAttribute("utente", utente);
+            request.setAttribute("forTest", forTest);
             request.setAttribute("applicationMessage", applicationMessage);
             request.setAttribute("viewUrl", "carrelloManagement/view");
 
@@ -183,7 +187,7 @@ public class CarrelloManagement {
             Prodotto prodotto = prodottoDAO.findById(idProdotto);
             
             annate = prodottoDAO.findAllAnnate();
-
+            String forTest = null;
             if(quantita > prodotto.getQuantita()){
                 applicationMessage = "Quantita' richiesta non disponibile nel magazzino";
                 viewUrl = "catalogoManagement/singoloProdotto";
@@ -194,6 +198,7 @@ public class CarrelloManagement {
                 int quantitaIniziale = prodottoDAO.getQuantita(prodotto);
                 prodottoDAO.modificaQuantita(prodotto, quantitaIniziale - quantita);
                 viewUrl = "catalogoManagement/view";
+                forTest = "aggiungo il prodotto nel carrello";
             }
             prodotti = prodottoDAO.findAllProductForCatalogo();
 
@@ -204,6 +209,7 @@ public class CarrelloManagement {
             request.setAttribute("loggedUser", loggedUser);
             request.setAttribute("prodotto", prodotto);
             request.setAttribute("prodotti", prodotti);
+            request.setAttribute("forTest", forTest);
             request.setAttribute("annate", annate);
             request.setAttribute("applicationMessage", applicationMessage);
             request.setAttribute("viewUrl", viewUrl);

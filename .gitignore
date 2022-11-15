@@ -17,3 +17,9 @@ glassfish5/
 \.vscode\
 ".classpath"
 .settings/org.eclipse.jdt.core.prefs
+
+*.txt
+./log/*.txt
+.\log\*.txt
+.\log\
+./log/
