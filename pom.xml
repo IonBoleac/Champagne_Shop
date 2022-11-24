@@ -102,13 +102,13 @@
                         <containerId>glassfish5x</containerId>
                         <type>installed</type>
                         <!-- Path to directory where glassfish is installed -->
-                        <home>/mnt/wsl/glassfish/glassfish5</home>
+                        <home>/mnt/wsl/glassfish/glassfish5/</home>
                     </container>
                     <configuration>
                         <type>existing</type>
                         <!-- Path to domains directory -->
                         <!-- LOCAL PATH WINDOWS:  C:\\Users\\ionut\\Programmi\\glassfish5\\glassfish\\domains -->
-                        <home>/mnt/wsl/glassfish/glassfish5/glassfish/domains</home>
+                        <home>/mnt/wsl/glassfish/glassfish5/glassfish/domains/</home>
                         <properties>
                             <!-- Domain name where application will be deployed. -->
                             <cargo.glassfish.domain.name>domain1</cargo.glassfish.domain.name>

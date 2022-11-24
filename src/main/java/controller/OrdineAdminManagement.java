@@ -33,7 +33,7 @@ public class OrdineAdminManagement {
         List<TestataOrdine> testataOrdineList;
 
         try{
-            Map sessionFactoryParameters = new HashMap<String, Object>();
+            Map<String, Object> sessionFactoryParameters = new HashMap<String, Object>();
             sessionFactoryParameters.put("request", request);
             sessionFactoryParameters.put("response", response);
             sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL, sessionFactoryParameters);
@@ -94,7 +94,7 @@ public class OrdineAdminManagement {
         List<TestataOrdine> testataOrdineList;
 
         try{
-            Map sessionFactoryParameters = new HashMap<String, Object>();
+            Map<String, Object> sessionFactoryParameters = new HashMap<String, Object>();
             sessionFactoryParameters.put("request", request);
             sessionFactoryParameters.put("response", response);
             sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL, sessionFactoryParameters);
@@ -116,9 +116,12 @@ public class OrdineAdminManagement {
 
             if(state.equals("unblock")){
                 testataOrdineDAO.unblockTestataOrdine(testataOrdine);
-            }else{
+            }else if(state.equals("blocked")){
                 testataOrdineDAO.blockTestataOrdine(testataOrdine);
+            }else{
+                throw new Exception("Invalid state");
             }
+
 
             testataOrdineList = testataOrdineDAO.getAllListForAdmin();
             for (int i = 0; i < testataOrdineList.size(); i++) {
@@ -165,7 +168,7 @@ public class OrdineAdminManagement {
         List<TestataOrdine> testataOrdineList;
 
         try{
-            Map sessionFactoryParameters = new HashMap<String, Object>();
+            Map<String, Object> sessionFactoryParameters = new HashMap<String, Object>();
             sessionFactoryParameters.put("request", request);
             sessionFactoryParameters.put("response", response);
             sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL, sessionFactoryParameters);
@@ -233,7 +236,7 @@ public class OrdineAdminManagement {
         List<TestataOrdine> testataOrdineList;
 
         try{
-            Map sessionFactoryParameters = new HashMap<String, Object>();
+            Map<String, Object> sessionFactoryParameters = new HashMap<String, Object>();
             sessionFactoryParameters.put("request", request);
             sessionFactoryParameters.put("response", response);
             sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL, sessionFactoryParameters);
@@ -266,21 +269,16 @@ public class OrdineAdminManagement {
 
             if(testataOrdine.getStatoSpedizione().equals("e in fase di elaborazione")){
                 testataOrdineDAO.setStatoSpedizione(testataOrdine, stringheStato.get(0));
-            }
-
-            if(testataOrdine.getStatoSpedizione().equals("e stato preso in carico")){
+            }else if(testataOrdine.getStatoSpedizione().equals("e stato preso in carico")){
                 testataOrdineDAO.setStatoSpedizione(testataOrdine, stringheStato.get(1));
-            }
-
-            if(testataOrdine.getStatoSpedizione().equals("e stato consegnato al corriere")){
+            }else if(testataOrdine.getStatoSpedizione().equals("e stato consegnato al corriere")){
                 testataOrdineDAO.setStatoSpedizione(testataOrdine, stringheStato.get(2));
-            }
-            if(testataOrdine.getStatoSpedizione().equals("e in viaggio")){
+            }else if(testataOrdine.getStatoSpedizione().equals("e in viaggio")){
                 testataOrdineDAO.setStatoSpedizione(testataOrdine, stringheStato.get(3));
-            }
-
-            if(testataOrdine.getStatoSpedizione().equals("e in consegna")){
+            }else if(testataOrdine.getStatoSpedizione().equals("e in consegna")){
                 testataOrdineDAO.setConsegnato(testataOrdine);
+            }else{
+                applicationMessage = "Errore: set stato spedizione non valido";
             }
 
             testataOrdineList = testataOrdineDAO.getAllListForAdmin();

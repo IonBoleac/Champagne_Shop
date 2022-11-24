@@ -26,6 +26,7 @@ public class UtenteManagementTest {
 
     @BeforeAll
     public static void setUp(){
+        classUtil.println("---------UtenteManagementTest-------------");
         cont = 0;
         /* utente loggato */
         utenteLoggato = new Utente();

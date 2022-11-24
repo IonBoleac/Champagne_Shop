@@ -1,6 +1,7 @@
 package controller;
 
 import model.dao.*;
+import model.mo.Carrello;
 import model.mo.Prodotto;
 import model.mo.RigaOrdine;
 import model.mo.TestataOrdine;
@@ -19,8 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class OrdineManagement {
-    private OrdineManagement(){
-    }
+    private OrdineManagement(){}
 
     public static void compilareOrdine(HttpServletRequest request, HttpServletResponse response){
         DAOFactory sessionDAOFactory = null;
@@ -98,11 +98,13 @@ public class OrdineManagement {
 
             UtenteDAO utenteDAO = daoFactory.getUtenteDAO();
             ProdottoDAO prodottoDAO = daoFactory.getProdottoDAO();
+            CarrelloDAO carrelloDAO = daoFactory.getCarelloDAO();
             TestataOrdineDAO testataOrdineDAO = daoFactory.getTestataOrdineDAO();
             RigaOrdineDAO rigaOrdineDAO = daoFactory.getRigaOrdineDAO();
 
             Utente utente = utenteDAO.findByEmail(loggedUser.getEmail());
             utente = utenteDAO.getCarrelloByUtente(utente);
+            //utente.setCarello_CarelloList(carrelloDAO.findCarrelloByUtente(utente));
 
             String nome = (String) request.getParameter("nome");
             String cognome = (String) request.getParameter("cognome");
@@ -114,6 +116,8 @@ public class OrdineManagement {
 
             long millis=System.currentTimeMillis();
             Date dataOrdine = new java.sql.Date(millis);
+
+            String forTest = "test effettua ordine";
 
             TestataOrdine testataOrdine = testataOrdineDAO.create(null,utente,nome,cognome,indirizzoSpedizione,cap,citta,provincia,regione,dataOrdine,null,false);
 
@@ -149,6 +153,7 @@ public class OrdineManagement {
             request.setAttribute("prodottiVetrina", prodottiVetrina);
             //request.setAttribute("listTestataOrdine", listTestataOrdine);
             request.setAttribute("applicationMessage", applicationMessage);
+            request.setAttribute("forTest", forTest);
             request.setAttribute("viewUrl", "homeManagement/view");
 
         }catch (Exception e) {
@@ -203,6 +208,7 @@ public class OrdineManagement {
             Utente utente = utenteDAO.findByEmail(loggedUser.getEmail());
             listTestataOrdine = testataOrdineDAO.listAllTestataOrdineByEmail(utente);
 
+
             for (int i = 0; i < listTestataOrdine.size(); i++) {
                 listRigaOrdine = rigaOrdineDAO.getRigaOrdineByIdTestataOrdine(listTestataOrdine.get(i));
                 for (int j = 0; j < listRigaOrdine.size(); j++) {
@@ -213,6 +219,7 @@ public class OrdineManagement {
                 listTestataOrdine.get(i).setRigaOrdine(ordineArrayList);
             }
 
+            String forTest = "view tutti gli ordini";
 
             daoFactory.commitTransaction();
             sessionDAOFactory.commitTransaction();
@@ -221,6 +228,7 @@ public class OrdineManagement {
             request.setAttribute("loggedUser", loggedUser);
             request.setAttribute("listTestataOrdine", listTestataOrdine);
             request.setAttribute("applicationMessage", applicationMessage);
+            request.setAttribute("forTest", forTest);
             request.setAttribute("viewUrl", "ordineManagement/view");
 
 
@@ -279,12 +287,13 @@ public class OrdineManagement {
 
             rigaOrdineArrayList = rigaOrdineDAO.getRigaOrdineByIdTestataOrdine(testataOrdine);
             for (int i = 0; i < rigaOrdineArrayList.size(); i++) {
-                prodotto = prodottoDAO.findById(""+rigaOrdineArrayList.get(i).getProdotto().getIdProdotto());
+                prodotto = prodottoDAO.findById("" + rigaOrdineArrayList.get(i).getProdotto().getIdProdotto());
                 rigaOrdineArrayList.get(i).setProdotto(prodotto);
                 prodottoArrayList.add(prodotto);
             }
 
 
+            String forTest = "test lista prodotti";
 
             daoFactory.commitTransaction();
             sessionDAOFactory.commitTransaction();
@@ -293,6 +302,7 @@ public class OrdineManagement {
             request.setAttribute("loggedUser", loggedUser);
             request.setAttribute("rigaOrdineArrayList", rigaOrdineArrayList);
             request.setAttribute("testataOrdine", testataOrdine);
+            request.setAttribute("forTest", forTest);
             request.setAttribute("prodottoArrayList", prodottoArrayList);
             request.setAttribute("applicationMessage", applicationMessage);
             request.setAttribute("viewUrl", "ordineManagement/viewDettagliOrdine");
