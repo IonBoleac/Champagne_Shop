@@ -8,7 +8,7 @@
 /.stackedit-trash/
 .\lib\
 target\
-/mnt/c/Users/loren/Documents/GitHub/Gestionale_Distributori/lib/
+/mnt/c/Users/ionut/Documents/GitHub/Gestionale_Distributori/lib/
 lib
 lib/
 lib\
@@ -23,3 +23,5 @@ glassfish5/
 .\log\*.txt
 .\log\
 ./log/
+log\
+log/

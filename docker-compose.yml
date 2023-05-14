@@ -1,0 +1,37 @@
+version: '3.8'
+
+# Services: postgres
+services:
+  db:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: qwe
+      POSTGRES_DB: Champagne_Shop
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/postgres_init.sql:/docker-entrypoint-initdb.d/postgres_init.sql
+    ports:
+      - "5432:5432"
+
+  app:
+    depends_on:
+      - db
+    build: .
+    environment:
+      - DATABASE_HOST = db
+      - DATABASE_USERNAME = root
+      - DATABASE_PASSWORD = qwe
+      - LOGFILE = /var/log/service.log
+    ports:
+      - "8080:8080"
+      - "4848:4848"
+    # For interactive debugging (open a shell in the container)
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+
+
+# Volumes
+volumes:
+  postgres_data:
