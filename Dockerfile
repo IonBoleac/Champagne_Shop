@@ -31,7 +31,8 @@ RUN echo java home: $JAVA_HOME
 RUN mvn install -DskipTests
 
 #Avvio il container con Glassfish e deployo l'applicazione
+# CMD ["mvn", "package"]
 CMD ["/bin/bash", "/home/Champagne_Shop/init.sh"]
 
-EXPOSE 8080:8080
+EXPOSE 8080
 

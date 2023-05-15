@@ -4,6 +4,7 @@ version: '3.8'
 services:
   db:
     image: postgres
+    container_name: postgres_ISA
     restart: unless-stopped
     environment:
       POSTGRES_USER: root
@@ -11,11 +12,14 @@ services:
       POSTGRES_DB: Champagne_Shop
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./database/postgres_init.sql:/docker-entrypoint-initdb.d/postgres_init.sql
+      - ./database/backup.sql:/docker-entrypoint-initdb.d/backup.sql
     ports:
       - "5432:5432"
+    networks:
+      - rete_ISA
 
   app:
+    container_name: app_ISA
     depends_on:
       - db
     build: .
@@ -23,6 +27,7 @@ services:
       - DATABASE_HOST = db
       - DATABASE_USERNAME = root
       - DATABASE_PASSWORD = qwe
+      - DATABASE_NAME = Champagne_Shop
       - LOGFILE = /var/log/service.log
     ports:
       - "8080:8080"
@@ -30,8 +35,16 @@ services:
     # For interactive debugging (open a shell in the container)
     stdin_open: true # docker run -i
     tty: true        # docker run -t
+    networks:
+      - rete_ISA
 
 
 # Volumes
 volumes:
   postgres_data:
+
+# Networks
+networks:
+  rete_ISA:
+    name: rete_ISA
+    driver: bridge

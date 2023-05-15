@@ -13,7 +13,6 @@ lib
 lib/
 lib\
 target
-glassfish5/
 \.vscode\
 ".classpath"
 .settings/org.eclipse.jdt.core.prefs

@@ -20,7 +20,8 @@ public class Configuration {
   public static final String DATABASE_HOST = System.getenv().getOrDefault("DATABASE_HOST", "localhost");
   public static final String DATABASE_USERNAME = System.getenv().getOrDefault("DATABASE_USERNAME", "root");
   public static final String DATABASE_PASSWORD = System.getenv().getOrDefault("DATABASE_PASSWORD", "qwe");
-  public static final String DATABASE_URL = "jdbc:postgresql://" + DATABASE_HOST + "/esame_riguzzi?user=" + DATABASE_USERNAME + "&password=" + DATABASE_PASSWORD + "&useSSL=false&serverTimezone=" + SERVER_TIMEZONE;
+  public static final String DATABASE_NAME = System.getenv().getOrDefault("DATABASE_NAME", "Champagne_Shop");
+  public static final String DATABASE_URL = "jdbc:postgresql://" + DATABASE_HOST + "/"+ DATABASE_NAME + "?user=" + DATABASE_USERNAME + "&password=" + DATABASE_PASSWORD + "&useSSL=false&serverTimezone=" + SERVER_TIMEZONE;
   
 
 
