@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu
 
 WORKDIR /home/Champagne_Shop
 
@@ -30,9 +30,11 @@ RUN echo java home: $JAVA_HOME
 # Non posso eseguire i test senza il db
 RUN mvn install -DskipTests
 
+EXPOSE 8080
+
 #Avvio il container con Glassfish e deployo l'applicazione
 # CMD ["mvn", "package"]
 CMD ["/bin/bash", "/home/Champagne_Shop/init.sh"]
 
-EXPOSE 8080
+
 
