@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:latest
 
 WORKDIR /home/Champagne_Shop
 
@@ -9,7 +9,7 @@ COPY src /home/Champagne_Shop/src
 COPY glassfish5 /home/Champagne_Shop/glassfish5
 COPY docker_init.sh /home/Champagne_Shop/init.sh
 
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update
 
 # installazione software necesssari
 RUN apt install -y maven
@@ -30,7 +30,7 @@ RUN echo java home: $JAVA_HOME
 # Non posso eseguire i test senza il db
 RUN mvn install -DskipTests
 
-EXPOSE 8080
+# EXPOSE 8080
 
 #Avvio il container con Glassfish e deployo l'applicazione
 # CMD ["mvn", "package"]
