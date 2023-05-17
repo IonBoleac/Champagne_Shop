@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu
 
 WORKDIR /home/Champagne_Shop
 
