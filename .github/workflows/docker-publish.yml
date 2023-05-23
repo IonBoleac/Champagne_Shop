@@ -43,3 +43,8 @@ jobs:
         uses: isbang/compose-action@v1.4.1
         with:
           compose-file: docker-compose.yml
+        env:
+          DATABASE_NAME: Champagne_Shop
+          DATABASE_USERNAME: root
+          DATABASE_PASSWORD: qwe
+          DATABASE_HOST: localhost

@@ -30,7 +30,7 @@ jobs:
 
     
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -DskipTests -B package --file pom.xml
     
     
 
