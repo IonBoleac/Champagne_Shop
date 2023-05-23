@@ -12,9 +12,9 @@ COPY docker_init.sh /home/Champagne_Shop/init.sh
 RUN apt-get update
 
 # installazione software necesssari
-RUN apt install -y maven
-RUN apt install -y openjdk-8-jdk
-RUN apt remove -y openjdk-11-jre-headless #altrimenti problemi con glassfish
+RUN apt-get install -y maven
+RUN apt-get install -y openjdk-8-jdk
+RUN apt-get remove -y openjdk-11-jre-headless #altrimenti problemi con glassfish
 
 # Java config
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
