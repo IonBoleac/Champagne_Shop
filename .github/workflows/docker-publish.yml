@@ -62,3 +62,5 @@ jobs:
       
       - name: list Docker image
         run: docker image list
+      - name: list Docker container
+        run: docker container list
