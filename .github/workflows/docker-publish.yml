@@ -65,11 +65,8 @@ jobs:
       - name: list Docker container
         run: docker container list
 
-      #- name: tag container
-      #  run: docker tag champagne_shop_app:latest iuon/champagne_shop-app:1.1.1
-
-      #- name: push container
-      #  run: docker push iuon/champagne_shop-app:1.1.1
+      - name: tag container
+        run: docker tag champagne_shop_app:latest iuon/champagne_shop-app:1.1.2
 
       - name: push container
-        run: docker push iuon/champagne_shop-app:testCICD
+        run: docker push iuon/champagne_shop-app:1.1.2
