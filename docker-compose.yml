@@ -25,12 +25,6 @@ services:
     depends_on:
       - db
     build: .
-    environment:
-      - DATABASE_HOST = "localhost"
-      - DATABASE_USERNAME = "root"
-      - DATABASE_PASSWORD = "qwe"
-      - DATABASE_NAME = "Champagne_Shop"
-      - LOGFILE = "/var/log/service.log"
     ports:
       - "8080:8080"
       - "4848:4848"
