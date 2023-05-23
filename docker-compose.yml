@@ -4,7 +4,7 @@ version: '3.8'
 services:
   db:
     image: postgres
-    container_name: postgres_ISA_new
+    container_name: postgres_ISA
     restart: unless-stopped
     environment:
       POSTGRES_USER: root
@@ -21,7 +21,7 @@ services:
   
 
   app:
-    container_name: app_ISA_new
+    container_name: app_ISA
     depends_on:
       - db
     build: .
