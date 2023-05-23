@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven and compose build
+name: Java CI with Maven and build only
 
 on:
   push:
