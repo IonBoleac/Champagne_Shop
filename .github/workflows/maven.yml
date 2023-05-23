@@ -28,10 +28,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Docker compose
-      run: docker compose up 
-
-
+    
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     

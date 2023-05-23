@@ -28,7 +28,7 @@ RUN echo java home: $JAVA_HOME
 
 # Compilazione
 # Non posso eseguire i test senza il db
-RUN mvn install -DskipTests
+RUN mvn package -DskipTests
 
 # EXPOSE 8080
 

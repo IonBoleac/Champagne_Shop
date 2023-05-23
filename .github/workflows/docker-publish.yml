@@ -40,10 +40,6 @@ jobs:
           images: iuon/champagne_shop-app
       
       - name: Build and push Docker image
-        uses: docker/build-push-action@v4
+        uses: isbang/compose-action@v1.4.1
         with:
-          context: .
-          file: ./docker-compose.yml
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          compose-file: docker-compose.yml
