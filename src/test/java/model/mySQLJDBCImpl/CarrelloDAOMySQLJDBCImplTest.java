@@ -50,4 +50,27 @@ public class CarrelloDAOMySQLJDBCImplTest {
         daoFactory.rollbackTransaction();
         daoFactory.closeTransaction();
     }
+
+    @Test
+    @DisplayName("Test addProdottoNelCarrello con utente e prodotto non esistenti")
+    void testAddProdottoNelCarrello2() throws DuplicatedObjectException{
+        Carrello carrello;
+        DAOFactory daoFactory = DAOFactory.getDAOFactory(Configuration.DAO_IMPL, null);
+        assert daoFactory != null;
+        daoFactory.beginTransaction();
+
+        CarrelloDAO carrelloDAO = daoFactory.getCarelloDAO();
+
+        utente.setEmail("email@gmail.com");
+        prodotto.setIdProdotto(Long.valueOf(100));
+
+        java.lang.RuntimeException thrown = assertThrows(
+                java.lang.RuntimeException.class,
+                () -> carrelloDAO.addProdottoNelCarrello(utente, prodotto, 2, 200),
+                "Expected addProdottoNelCarrello() to throw, but it didn't"
+        );
+
+        daoFactory.rollbackTransaction();
+        daoFactory.closeTransaction();
+    }
 }
