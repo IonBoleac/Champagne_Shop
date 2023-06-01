@@ -16,7 +16,8 @@ target
 \.vscode\
 ".classpath"
 .settings/org.eclipse.jdt.core.prefs
-#/glassfish5
+/glassfish5
+\glassfish5_new
 
 *.txt
 ./log/*.txt
